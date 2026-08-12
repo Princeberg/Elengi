@@ -1,0 +1,21 @@
+{
+  "name": "ELENGI FastFood",
+  "short_name": "ELENGI",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#d91c1f",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "images/favicon.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "images/favicon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

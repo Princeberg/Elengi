@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ELENGI FastFood</title>
+    <link rel="icon" href="images/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="styles/globals.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <button class="icon-btn" id="menu-toggle">
+                <i data-feather="menu"></i>
+            </button>
+            <div class="delivery-info">
+                <span class="del-label">Livraison à</span>
+                <span class="del-address">Brazzaville</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="brand-logo-mini">
+                <img src="images/favicon.jpg" alt="ELENGI">
+            </div>
+            <button class="icon-btn cart-trigger" id="cart-open">
+                <i data-feather="shopping-bag"></i>
+                <span class="cart-badge" id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Menu Hamburger (Sidebar) -->
+    <nav class="sidebar" id="sidebar">
+        <button class="icon-btn close-sidebar" id="menu-close">
+            <i data-feather="x"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#menu-section"><i data-feather="grid"></i> Menu</a></li>
+            <li><a href="#how-it-works"><i data-feather="help-circle"></i> Comment ça marche</a></li>
+        </ul>
+    </nav>
+    <div class="overlay" id="sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <h1 class="hero-title">Petite faim ?  <span class="text-light">Commandez !</span></h1>
+        <div class="gallery-wrapper">
+            <img src="images/header1.jpg" alt="Promotion ELENGI 1" class="gallery-img">
+            <img src="images/logo.jpg" alt="Promotion ELENGI 1" class="gallery-img">
+        </div>
+
+        <section id="menu-section">
+            <h3 class="section-title">Notre Menu</h3>
+            <div class="products-grid" id="products-container">
+            </div>
+        </section>
+
+ <!-- Section: Comment ça marche (Avec Icônes Modernes & Minimalistes) -->
+<section id="how-it-works" class="how-it-works-section">
+    <div class="process-header">
+        <h2 class="process-title">Commande Simple & rapide </h2>
+    </div>
+
+    <div class="process-steps">
+        <!-- Étape 1 -->
+        <div class="step-card">
+    
+            <div class="step-icon-wrapper">
+                <i data-feather="shopping-bag" class="step-icon"></i>
+            </div>
+            <div class="step-content">
+                <h4>Choix des plats</h4>
+            </div>
+        </div>
+
+        <!-- Étape 2 -->
+        <div class="step-card">
+            <div class="step-icon-wrapper">
+                <i data-feather="check-square" class="step-icon"></i>
+            </div>
+            <div class="step-content">
+                <h4>Validation du panier</h4>
+            </div>
+        </div>
+
+        <!-- Étape 3 -->
+        <div class="step-card">
+            <div class="step-icon-wrapper">
+                <i data-feather="send" class="step-icon"></i>
+            </div>
+            <div class="step-content">
+                <h4>Envoi de la commande </h4>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="modern-footer">
+    <!-- Bottom Bar -->
+    <div class="footer-bottom-bar">
+        <div class="footer-socials">
+            <a href="#">WhatsApp</a>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+        </div>
+    </div>
+</footer>
+
+    <!-- Popup Panier -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content cart-content">
+            <div class="modal-header">
+                <h3>Votre Panier</h3>
+                <button class="icon-btn close-modal"><i data-feather="x"></i></button>
+            </div>
+            <div class="cart-items-list" id="cart-items-container"></div>
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total</span>
+                    <strong id="cart-total">0 frc</strong>
+                </div>
+                <button class="btn-primary w-100" id="btn-commander" disabled>Commander</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Informations Client -->
+    <div class="modal" id="checkout-modal">
+        <div class="modal-content checkout-content">
+            <div class="modal-header">
+                <h3>Détails du client</h3>
+                <button class="icon-btn close-modal" id="close-checkout"><i data-feather="arrow-left"></i></button>
+            </div>
+            <form id="checkout-form" class="checkout-form">
+                <div class="input-group">
+                    <i data-feather="user"></i>
+                    <input type="text" id="client-name" placeholder="Nom complet" required>
+                </div>
+                <div class="input-group">
+                    <i data-feather="phone"></i>
+                    <input type="tel" id="client-phone" placeholder="Numéro de téléphone" required>
+                </div>
+                <div class="input-group">
+                    <i data-feather="align-left"></i>
+                    <textarea id="client-notes" rows="3" placeholder="Infos supplémentaires..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary w-100">Confirmer la commande</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/product.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
