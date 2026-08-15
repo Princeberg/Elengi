@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ELENGI FastFood</title>
+    <title>ELENGI</title>
     <link rel="icon" href="images/favicon.jpg" type="image/x-icon">
     <link rel="stylesheet" href="styles/globals.css">
     <link rel="manifest" href="manifest.json">
     <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Top Navigation -->
@@ -39,7 +40,7 @@
         </button>
         <ul class="nav-links">
             <li><a href="#menu-section"><i data-feather="grid"></i> Menu</a></li>
-            <li><a href="#how-it-works"><i data-feather="help-circle"></i> Comment ça marche</a></li>
+            <li><a href="#how-it-works"><i data-feather="help-circle"></i> Comment ça marche ? </a></li>
         </ul>
     </nav>
     <div class="overlay" id="sidebar-overlay"></div>
@@ -49,8 +50,8 @@
         <!-- Hero Section -->
         <h1 class="hero-title">Petite faim ?  <span class="text-light">Commandez !</span></h1>
         <div class="gallery-wrapper">
-            <img src="images/header1.jpg" alt="Promotion ELENGI 1" class="gallery-img">
-            <img src="images/logo.jpg" alt="Promotion ELENGI 1" class="gallery-img">
+            <img src="images/gallery.jpg" alt="Promotion ELENGI 1" class="gallery-img">
+            <img src="images/Hero2.jpg" alt="Promotion ELENGI 1" class="gallery-img">
         </div>
 
         <section id="menu-section">
@@ -58,52 +59,98 @@
             </div>
         </section>
 
- <!-- Section: Comment ça marche (Avec Icônes Modernes & Minimalistes) -->
+       <!-- Section: Comment ça marche -->
 <section id="how-it-works" class="how-it-works-section">
     <div class="process-header">
-        <h2 class="process-title">Commande Simple & rapide </h2>
+        <h2 class="process-title">Comment ça marche ? </h2>
     </div>
 
     <div class="process-steps">
-        <!-- Étape 1 -->
+        <!-- Étape 1 : Calendar (Anticipation 24h) -->
         <div class="step-card">
-    
             <div class="step-icon-wrapper">
-                <i data-feather="shopping-bag" class="step-icon"></i>
+              <i data-feather="shopping-bag" class="step-icon"></i>
             </div>
             <div class="step-content">
-                <h4>Choix des plats</h4>
+                <h4>Commande 24h à l'avance</h4>
             </div>
         </div>
 
-        <!-- Étape 2 -->
-        <div class="step-card">
+        <!-- Étape 2 : Award/Star (Série limitée & qualité) -->
+        <!-- <div class="step-card">
             <div class="step-icon-wrapper">
-                <i data-feather="check-square" class="step-icon"></i>
+                <i data-feather="award" class="step-icon"></i>
             </div>
             <div class="step-content">
-                <h4>Validation du panier</h4>
+                <h4>Quantités limitées</h4>
             </div>
-        </div>
+        </div> -->
 
-        <!-- Étape 3 -->
+        <!-- Étape 3 : Credit-card (Acompte) -->
         <div class="step-card">
             <div class="step-icon-wrapper">
-                <i data-feather="send" class="step-icon"></i>
+                <i data-feather="credit-card" class="step-icon"></i>
             </div>
             <div class="step-content">
-                <h4>Envoi de la commande </h4>
+                <h4>Acompte à la commande</h4>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Section Galerie & Plaisir -->
+<section id="galerie-plaisir" class="gallery-section">
+    <div class="gallery-container">
+        <!-- Visual / Image -->
+        <div class="gallery-image-wrapper">
+            <img src="images/header1.jpg" alt="Délicieux plat gourmand" class="gallery-image">
+            <div class="image-overlay"></div>
+        </div>
+
+        <!-- Content & CTA -->
+        <div class="gallery-content">
+            <h2 class="gallery-title">Faites-vous plaisir</h2>
+            <p class="gallery-description">
+                Découvrez nos créations gourmandes préparées avec des ingrédients frais.
+            </p>
+            
+            <a href="#menu-section" class="btn-primary-order">
+                <i data-feather="shopping-bag" class="btn-icon"></i>
+                <span>Commandez</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+
 <footer class="modern-footer">
-    <!-- Bottom Bar -->
-    <div class="footer-bottom-bar">
-        <div class="footer-socials">
-            <a href="#">WhatsApp</a>
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
+    <div class="footer-container">
+        <!-- Brand / Slogan -->
+       <div class="footer-brand">
+        <img src="images/favicon2.png" alt="NomDeMarque" class="footer-logo-img">
+    </a>
+    <p class="footer-tagline">Le vrai goût du poulet</p>
+</div>
+
+        <!-- Links / Bottom Bar Integration -->
+        <div class="footer-bottom-bar">
+            <div class="footer-socials">
+                <a href="https://wa.me/242067689009" class="social-link" aria-label="WhatsApp">
+                    <i data-feather="message-circle"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <i data-feather="instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <i data-feather="facebook"></i>
+                    <span>Facebook</span>
+                </a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 Tous droits réservés.</p>
+            </div>
         </div>
     </div>
 </footer>
@@ -126,7 +173,6 @@
         </div>
     </div>
 
-    <!-- Popup Informations Client -->
     <div class="modal" id="checkout-modal">
         <div class="modal-content checkout-content">
             <div class="modal-header">

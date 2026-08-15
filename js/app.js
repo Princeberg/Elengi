@@ -7,12 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Liste des catégories dynamiques
     const categories = [
-        { id: 'all', name: 'Tous', icon: 'grid' },
-        { id: 'pastels', name: 'Pastels', icon: 'disc' },
-        { id: 'box', name: 'Box', icon: 'package' },
-        { id: 'desserts', name: 'Desserts', icon: 'heart' },
-        { id: 'boissons', name: 'Boissons', icon: 'coffee' }
-    ];
+    { id: 'all', name: 'Tous', icon: 'grid' },
+    { id: 'pastels', name: 'Pastels', icon: 'disc' },
+    { id: 'box', name: 'Box', icon: 'package' },
+    { id: 'crispy', name: 'Crispy', icon: 'zap' },         
+    { id: 'bucket', name: 'Bucket', icon: 'shopping-bag' }, 
+    { id: 'supplements', name: 'Suppléments', icon: 'plus-circle' }, 
+    { id: 'boissons', name: 'Boissons', icon: 'coffee' }
+];
 
     // 2. Rendu des boutons de filtres minimalistes
     function renderCategoryFilters() {
@@ -108,8 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="product-desc">${product.desc}</p>
                     <div class="card-footer">
                         <div class="price">
-                            <span class="currency">frc</span>
                             ${product.price.toLocaleString('fr-FR')}
+                             <span class="currency">FCFA</span>
                         </div>
                         ${actionButtonHTML}
                     </div>
