@@ -1,15 +1,12 @@
 const productsData = [
-
-
-    // --- BOX ---
     
     {
         id: "prod-1",
         name: "Afro box",
         price: 5500,
         category: "box",
-        desc: "Riz jollof",
-        image: "images/fallback.jpg"
+        desc: "Tchiep, poulet crispy, bannanes frites, Salade",
+        image: "images/menu/Afrobox.png"
     },
 
      {
@@ -17,8 +14,8 @@ const productsData = [
         name: "Box ELENGI",
         price: 12500,
         category: "box",
-        desc: "Riz jollof",
-        image: "images/fallback.jpg"
+        desc: "2 poulet fris, 4 poulet tenders, 5 boulettes de poulet , 2 pastels, frites, 3 pots sauces",
+        image: "images/menu/BoxElengui.png"
     },
 
 
@@ -29,7 +26,7 @@ const productsData = [
         name: "Tenders",
         price: 2500,
         category: "crispy",
-        desc: "3 gros pastels + poulet/Sardine + Œuf ",
+        desc: "",
         image: "https://i.pinimg.com/736x/3e/2c/98/3e2c98f93c6437e459b8cfadad143aea.jpg"
     },
 
@@ -38,7 +35,7 @@ const productsData = [
         name: "Boulettes",
         price: 2000,
         category: "crispy",
-        desc: "3 gros pastels + poulet/Sardine + Œuf ",
+        desc: "",
         image: "https://i.pinimg.com/736x/72/af/0f/72af0ff3a95e974a9b4bbfee2edb0977.jpg"
     },
 
@@ -49,16 +46,16 @@ const productsData = [
         name: "Mégas classiques ",
         price: 2500,
         category: "pastels",
-        desc: "3 gros pastels + poulet/Sardine + Œuf ",
-        image: "images/menu/box.jpg"
+        desc: " ",
+        image: "https://i.pinimg.com/1200x/40/14/ec/4014ec71a0f40a1fa4524bf6e6ec068d.jpg"
     },
     {
         id: "prod-6",
         name: "Super pasty ",
         price: 3500,
         category: "pastels",
-        desc: "3 gros pastels + poulet/Sardine + Œuf ",
-        image: "images/menu/box.jpg"
+        desc: "",
+        image: "https://i.pinimg.com/1200x/a2/00/0e/a2000e37d8100211507647de89a2f531.jpg"
     },
 
     
@@ -69,8 +66,8 @@ const productsData = [
         name: "Frites",
         price: 1000,
         category: "supplements",
-        desc: "Pommes de terre Frites ",
-        image: "https://i.pinimg.com/1200x/53/41/2f/53412fdeab9000989da1c2e4c7e8ef5d.jpg"
+        desc: "",
+        image: "https://i.pinimg.com/736x/7a/a7/e6/7aa7e61a5f6e260c4c4d2aed42dfee8c.jpg"
     },
 
     {
@@ -78,8 +75,8 @@ const productsData = [
         name: "Riz tchiep ",
         price: 1000,
         category: "supplements",
-        desc: "Riz tchiep",
-        image: "https://i.pinimg.com/736x/7f/d5/70/7fd570a0c60e7a8607b4436c8862e6be.jpg"
+        desc: "",
+        image: "https://i.pinimg.com/1200x/56/17/de/5617de07a44cc4a6d3057a8582d08574.jpg"
     },
 
     {
@@ -87,8 +84,8 @@ const productsData = [
         name: "bananes frites ",
         price: 500,
         category: "supplements",
-        desc: "Bannanes plantains frites ",
-        image: "https://i.pinimg.com/736x/de/1a/1d/de1a1d9f9a533c49b49ee90f644a5dec.jpg"
+        desc: "",
+        image: "https://i.pinimg.com/1200x/54/73/1c/54731c03005f9e52658169d74d045066.jpg"
     },
 
     {
@@ -104,11 +101,29 @@ const productsData = [
 
     {
         id: "prod-11",
-        name: "Jus de Bissap",
-        price: 150,
+        name: "Perla",
+        price: 300,
         category: "boissons",
-        desc: "Jus de bissap fait maison (50cl)",
-        image: "images/menu/bissap.png"
+        desc: "",
+        image: "https://ragec.net/imagesdb/subproducts/Orange.png"
+    },
+
+    {
+        id: "prod-16",
+        name: "Orangina",
+        price: 350,
+        category: "boissons",
+        desc: "",
+        image: "https://ragec.net/imagesdb/subproducts/orangina-0,33l.png"
+    },
+
+    {
+        id: "prod-17",
+        name: "Orangina",
+        price: 500,
+        category: "boissons",
+        desc: "",
+        image: "https://ragec.net/imagesdb/subproducts/orangina-600.png"
     },
 
 
@@ -139,6 +154,46 @@ const productsData = [
         category: "bucket",
         desc: "Riz jollof",
         image: "images/fallback.jpg"
+    },
+
+     // --- SAUCES ---
+    
+    {
+        id: "prod-13",
+        name: "Originale",
+        price: 300,
+        category: "sauces",
+        desc: "Crémeuse, légèrement relevée.",
+        image: "https://i.pinimg.com/736x/f7/af/30/f7af30d88d12dd9f1a94544d43234260.jpg"
+    },
+
+     {
+        id: "prod-14",
+        name: "Piment",
+        price: 300,
+        category: "sauces",
+        desc: "Épicée, inspirée des saveurs africaines.",
+        image: "https://i.pinimg.com/1200x/e7/e8/2c/e7e82c59dfa54bdfce2977147ef28e4f.jpg"
+    },
+
+     {
+        id: "prod-15",
+        name: "Miel-Ail",
+        price: 300,
+        category: "sauces",
+        desc: "Douce, gourmande et premium",
+        image: "https://i.pinimg.com/736x/3a/ad/0b/3aad0b904aa29318383a0d856a7e4ced.jpg"
+    },
+
+    // DESSERTS
+
+      {
+        id: "prod-18",
+        name: "Yaourt",
+        price: 500,
+        category: "desserts",
+        desc: "",
+        image: "https://i.pinimg.com/736x/d7/aa/df/d7aadf82326c361e5c2c2f028c8e6538.jpg"
     },
 
 ];

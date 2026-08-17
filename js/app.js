@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
     feather.replace();
     let cart = {};
-    let selectedCategory = 'all';
+    let selectedCategory = 'box';
 
     const productsContainer = document.getElementById('products-container');
 
-    // 1. Liste des catégories dynamiques
     const categories = [
-    { id: 'all', name: 'Tous', icon: 'grid' },
-    { id: 'pastels', name: 'Pastels', icon: 'disc' },
-    { id: 'box', name: 'Box', icon: 'package' },
-    { id: 'crispy', name: 'Crispy', icon: 'zap' },         
-    { id: 'bucket', name: 'Bucket', icon: 'shopping-bag' }, 
-    { id: 'supplements', name: 'Suppléments', icon: 'plus-circle' }, 
-    { id: 'boissons', name: 'Boissons', icon: 'coffee' }
+    { id: 'box', name: 'Box'},
+    { id: 'crispy', name: 'Crispy' },
+    { id: 'bucket', name: 'Bucket' },
+    { id: 'pastels', name: 'Pastels' },
+    { id: 'sauces', name: 'Sauces'},
+    { id: 'supplements', name: 'Suppléments'}, 
+    { id: 'desserts', name: 'Desserts' },
+    { id: 'boissons', name: 'Boissons' }
 ];
 
     // 2. Rendu des boutons de filtres minimalistes
@@ -30,12 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         filterWrapper.innerHTML = categories.map(cat => `
             <button class="filter-btn ${selectedCategory === cat.id ? 'active' : ''}" data-category="${cat.id}">
-                <i data-feather="${cat.icon}"></i>
                 <span>${cat.name}</span>
             </button>
         `).join('');
 
-        // Attachement des événements de filtrage
         filterWrapper.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 selectedCategory = e.currentTarget.dataset.category;
@@ -71,9 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (filteredProducts.length === 0) {
             productsContainer.innerHTML = `
                 <div class="empty-state">
-                    <i data-feather="inbox" style="width:40px;height:40px;color:var(--text-light);margin-bottom:10px;"></i>
+                    <i data-feather="inbox" style="width:40px;height:40px;color:var(--text-light);margin-bottom:10px; text-align: center;"></i>
                     <br>
-                    Aucun produit dans cette catégorie.
+                    Aucun produit.
                 </div>
             `;
             feather.replace();
@@ -81,49 +79,71 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         filteredProducts.forEach(product => {
-            const qty = cart[product.id] || 0;
-            const card = document.createElement('div');
-            card.className = 'product-card';
+    const qty = cart[product.id] || 0;
 
-            const actionButtonHTML = qty > 0 ? `
-                <div class="qty-pill">
-                    <button class="btn-minus" data-id="${product.id}">
-                        <i data-feather="minus"></i>
-                    </button>
-                    <span>${qty}</span>
-                    <button class="btn-plus" data-id="${product.id}">
-                        <i data-feather="plus"></i>
-                    </button>
+    const card = document.createElement('div');
+    card.className = 'product-card';
+
+    const actionButtonHTML = qty > 0 ? `
+        <div class="qty-pill">
+            <button class="btn-minus" data-id="${product.id}" aria-label="Retirer">
+                <i data-feather="minus"></i>
+            </button>
+
+            <span>${qty}</span>
+
+            <button class="btn-plus" data-id="${product.id}" aria-label="Ajouter">
+                <i data-feather="plus"></i>
+            </button>
+        </div>
+    ` : `
+        <button class="add-btn btn-plus" data-id="${product.id}" aria-label="Ajouter au panier">
+            <i data-feather="plus"></i>
+        </button>
+    `;
+
+    card.innerHTML = `
+        <div class="product-image-wrapper">
+            <img
+                src="${product.image}"
+                alt="${product.name}"
+                class="product-img"
+                loading="lazy"
+            >
+        </div>
+
+        <div class="product-content">
+
+            <div class="product-main">
+                <h4 class="product-name">${product.name}</h4>
+
+                <p class="product-desc">
+                    ${product.desc}
+                </p>
+            </div>
+
+            <div class="product-bottom">
+
+                <div class="product-price">
+                    <span class="price-value">
+                        ${product.price.toLocaleString('fr-FR')}
+                    </span>
+                    <span class="currency">FCFA</span>
                 </div>
-            ` : `
-                <button class="add-btn btn-plus" data-id="${product.id}">
-                    <i data-feather="plus"></i>
-                </button>
-            `;
 
-            card.innerHTML = `
-                <div class="img-wrapper">
-                    <img src="${product.image}" alt="${product.name}" class="product-img">
-                </div>
-                <div class="product-info">
-                    <h4>${product.name}</h4>
-                    <p class="product-desc">${product.desc}</p>
-                    <div class="card-footer">
-                        <div class="price">
-                            ${product.price.toLocaleString('fr-FR')}
-                             <span class="currency">FCFA</span>
-                        </div>
-                        ${actionButtonHTML}
-                    </div>
-                </div>
-            `;
+                ${actionButtonHTML}
 
-            productsContainer.appendChild(card);
-        });
+            </div>
 
-        feather.replace();
-        attachProductEvents();
-    }
+        </div>
+    `;
+
+    productsContainer.appendChild(card);
+});
+
+feather.replace();
+attachProductEvents();
+    }  
 
     function attachProductEvents() {
         document.querySelectorAll('.btn-plus').forEach(btn => {
