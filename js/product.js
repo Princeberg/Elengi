@@ -21,6 +21,16 @@ const productsData = [
 
 
       // --- CRIPSY ---
+
+    {
+        id: "prod-20",
+        name: "Wings",
+        price: 4000,
+        category: "crispy",
+        desc: "",
+        image: "https://i.pinimg.com/736x/6e/50/77/6e5077eeff98a5c1f348da88430eafbd.jpg"
+    },
+
     {
         id: "prod-3",
         name: "Tenders",
