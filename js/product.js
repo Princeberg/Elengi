@@ -43,7 +43,7 @@ const productsData = [
     // --- PASTELS ---
     {
         id: "prod-5",
-        name: "Mégas classiques ",
+        name: "Méga classique ",
         price: 2500,
         category: "pastels",
         desc: " ",
@@ -72,7 +72,7 @@ const productsData = [
 
     {
         id: "prod-8",
-        name: "Riz tchiep ",
+        name: "Riz tchep ",
         price: 1000,
         category: "supplements",
         desc: "",
@@ -134,8 +134,8 @@ const productsData = [
         name: "Cheesy Crunch",
         price: 9000,
         category: "bucket",
-        desc: "Riz jollof",
-        image: "images/fallback.jpg"
+        desc: "Tenders, Frites, Fromage",
+        image: "images/menu/Bucket1.jpg"
     },
 
      {
@@ -143,8 +143,8 @@ const productsData = [
         name: "Mini Cheesy Crunch",
         price: 5000,
         category: "bucket",
-        desc: "Riz jollof",
-        image: "images/fallback.jpg"
+        desc: "Tenders, Frites, Fromage",
+        image: "images/menu/Bucket1.jpg"
     },
 
      {
@@ -152,8 +152,8 @@ const productsData = [
         name: "Pasty",
         price: 8000,
         category: "bucket",
-        desc: "Riz jollof",
-        image: "images/fallback.jpg"
+        desc: "Méga pasty, sauces",
+        image: "images/menu/Bucket2.jpg"
     },
 
      // --- SAUCES ---
