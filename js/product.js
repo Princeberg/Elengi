@@ -25,7 +25,7 @@ const productsData = [
     {
         id: "prod-20",
         name: "Wings",
-        price: 4000,
+        price: 3000,
         category: "crispy",
         desc: "",
         image: "https://i.pinimg.com/736x/6e/50/77/6e5077eeff98a5c1f348da88430eafbd.jpg"
@@ -140,7 +140,7 @@ const productsData = [
      // --- BUCKETS ---
     
     {
-        id: "prod-12",
+        id: "prod-22",
         name: "Cheesy Crunch",
         price: 9000,
         category: "bucket",
@@ -149,7 +149,7 @@ const productsData = [
     },
 
      {
-        id: "prod-12",
+        id: "prod-23",
         name: "Mini Cheesy Crunch",
         price: 5000,
         category: "bucket",
@@ -158,7 +158,7 @@ const productsData = [
     },
 
      {
-        id: "prod-12",
+        id: "prod-24",
         name: "Pasty",
         price: 8000,
         category: "bucket",
