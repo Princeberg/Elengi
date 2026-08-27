@@ -9,6 +9,15 @@ const productsData = [
         image: "images/menu/Afrobox.png"
     },
 
+    {
+        id: "prod-21",
+        name: "Mini Afro box",
+        price: 2500,
+        category: "box",
+        desc: "Tchiep, 2 tenders ",
+        image: "images/menu/Mini-Afrobox.png"
+    },
+
      {
         id: "prod-2",
         name: "Box ELENGI",
