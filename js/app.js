@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const categories = [
     { id: 'box', name: 'Box'},
-    { id: 'crispy', name: 'Crispy' },
+    { id: 'cryspi', name: 'Cryspi' },
     { id: 'bucket', name: 'Bucket' },
     { id: 'pastels', name: 'Pastels' },
     { id: 'sauces', name: 'Sauces'},

@@ -5,7 +5,7 @@ const productsData = [
         name: "Afro box",
         price: 5500,
         category: "box",
-        desc: "Tchiep, poulet crispy, bannanes frites, Salade",
+        desc: "Tchep, poulets cryspi, bannanes frites ou frites , Salade",
         image: "images/menu/Afrobox.png"
     },
 
@@ -14,7 +14,7 @@ const productsData = [
         name: "Mini Afro box",
         price: 2500,
         category: "box",
-        desc: "Tchiep, 2 tenders ",
+        desc: "Tchep, poulets cryspi ",
         image: "images/menu/Mini-Afrobox.png"
     },
 
@@ -29,13 +29,13 @@ const productsData = [
 
 
 
-      // --- CRIPSY ---
+      // --- CRYPSI ---
 
     {
         id: "prod-20",
         name: "Wings",
         price: 3000,
-        category: "crispy",
+        category: "cryspi",
         desc: "",
         image: "https://i.pinimg.com/736x/6e/50/77/6e5077eeff98a5c1f348da88430eafbd.jpg"
     },
@@ -44,7 +44,7 @@ const productsData = [
         id: "prod-3",
         name: "Tenders",
         price: 2500,
-        category: "crispy",
+        category: "cryspi",
         desc: "",
         image: "https://i.pinimg.com/736x/3e/2c/98/3e2c98f93c6437e459b8cfadad143aea.jpg"
     },
@@ -53,7 +53,7 @@ const productsData = [
         id: "prod-4",
         name: "Boulettes",
         price: 2000,
-        category: "crispy",
+        category: "cryspi",
         desc: "",
         image: "https://i.pinimg.com/736x/72/af/0f/72af0ff3a95e974a9b4bbfee2edb0977.jpg"
     },
@@ -112,7 +112,7 @@ const productsData = [
         name: "Salade fraîche",
         price: 1000,
         category: "suppléments",
-        desc: "Riz tchiep",
+        desc: "",
         image: "https://i.pinimg.com/736x/f1/b8/51/f1b8518f09e71a12bb312c0e38c96154.jpg"
     },
 
