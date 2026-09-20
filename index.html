@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ELENGI</title>
+    <title>ELENGI Fast-Food</title>
     <link rel="icon" href="images/favicon.jpg" type="image/x-icon">
     <link rel="stylesheet" href="styles/globals.css">
     <link rel="manifest" href="manifest.json">
@@ -105,9 +105,9 @@
 
         <!-- Content & CTA -->
         <div class="gallery-content">
-            <h2 class="gallery-title">Faites-vous plaisir</h2>
+            <h2 class="gallery-title">Faites-vous plaisir ! </h2>
             <p class="gallery-description">
-                Découvrez nos créations gourmandes préparées avec des ingrédients frais.
+                Découvrez nos plats préparés avec des ingrédients frais.
             </p>
             
             <a href="#menu-section" class="btn-primary-order">
@@ -121,37 +121,47 @@
 
 <footer class="modern-footer">
     <div class="footer-container">
-        <!-- Brand / Slogan -->
-       <div class="footer-brand">
-        <img src="images/favicon2.png" alt="NomDeMarque" class="footer-logo-img">
-    </a>
-    <p class="footer-tagline">Le vrai goût du poulet</p>
-</div>
+        <!-- Grille principale -->
+        <div class="footer-grid">
 
-        <!-- Links / Bottom Bar Integration -->
+            <!-- Colonne 1 & 2 : Email + réseaux sociaux -->
+            <div class="footer-col footer-col-wide">
+                <a href="https://wa.me/242067689009" class="footer-email">
+                    +242067689009
+                </a>
+
+                <!-- Réseaux sociaux -->
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/elengi007?igsh=eXc4d2V4a2tjY3pq" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link">
+                        <i data-feather="instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Colonne 3 : Navigation -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="#menu-section">Menu</a></li>
+                    <li><a href="#how-it-works">Comment ça marche ? </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Barre du bas -->
         <div class="footer-bottom-bar">
-            <div class="footer-socials">
-                <a href="https://wa.me/242067689009" class="social-link" aria-label="WhatsApp">
-                    <i data-feather="message-circle"></i>
-                    <span>WhatsApp</span>
-                </a>
-                <a href="https://www.instagram.com/elengi007?igsh=eXc4d2V4a2tjY3pq" class="social-link" aria-label="Instagram">
-                    <i data-feather="instagram"></i>
-                    <span>Instagram</span>
-                </a>
-                <!-- <a href="#" class="social-link" aria-label="Facebook">
-                    <i data-feather="facebook"></i>
-                    <span>Facebook</span>
-                </a> -->
-            </div>
-            <div class="footer-copyright">
-                <p>&copy; 2026 Tous droits réservés.</p>
-            </div>
+            <p class="footer-copyright">
+                &copy; <span id="year"></span> Tous droits réservés.
+            </p>
+
+            <a href="https://magicandtech.netlify.app/" target="_blank" rel="noopener noreferrer" class="footer-made-by">
+                <span>Made by</span>
+                <img src="images/MT.png" alt="Magic and Tech" class="footer-made-logo">
+            </a>
         </div>
     </div>
 </footer>
 
-    <!-- Popup Panier -->
     <div class="modal" id="cart-modal">
         <div class="modal-content cart-content">
             <div class="modal-header">
@@ -195,5 +205,6 @@
 
     <script src="js/product.js"></script>
     <script src="js/app.js"></script>
+    <script> document.getElementById('year').textContent = new Date().getFullYear()</script>
 </body>
 </html>

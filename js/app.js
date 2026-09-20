@@ -5,22 +5,88 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const productsContainer = document.getElementById('products-container');
 
+    // =========================================
+    // CACHE — LOCALSTORAGE
+    // =========================================
+    const CACHE_KEY = 'elengi_products_cache';
+    const CACHE_TTL = 1000 * 60 * 60 * 24; // 24h
+
+    function getCachedProducts() {
+        try {
+            const raw = localStorage.getItem(CACHE_KEY);
+            if (!raw) return null;
+            const parsed = JSON.parse(raw);
+            if (!parsed.timestamp || Date.now() - parsed.timestamp > CACHE_TTL) {
+                localStorage.removeItem(CACHE_KEY);
+                return null;
+            }
+            return parsed.data;
+        } catch {
+            return null;
+        }
+    }
+
+    function setCachedProducts(data) {
+        try {
+            localStorage.setItem(CACHE_KEY, JSON.stringify({
+                timestamp: Date.now(),
+                data
+            }));
+        } catch {
+            // localStorage plein ou indisponible → on ignore
+        }
+    }
+
+    // =========================================
+    // CACHE — IMAGES (preload + decode)
+    // =========================================
+    const imageCache = new Map();
+
+    function preloadImage(src) {
+        if (imageCache.has(src)) return imageCache.get(src);
+
+        const promise = new Promise((resolve, reject) => {
+            const img = new Image();
+            img.decoding = 'async';
+            img.onload = () => resolve(src);
+            img.onerror = reject;
+            img.src = src;
+        });
+
+        imageCache.set(src, promise);
+        return promise;
+    }
+
+    function preloadImages(products) {
+        products.forEach(p => {
+            if (p.image) preloadImage(p.image).catch(() => {});
+        });
+    }
+
+    // =========================================
+    // DONNÉES PRODUITS — on garde la variable globale existante
+    // =========================================
+    // `productsData` est déjà définie dans ton code (fichier produits.js ou autre).
+    // On la met simplement en cache si elle existe.
+    if (typeof productsData !== 'undefined' && productsData && productsData.length) {
+        setCachedProducts(productsData);
+    }
+
     const categories = [
-    { id: 'box', name: 'Box'},
-    { id: 'cryspi', name: 'Cryspi' },
-    { id: 'bucket', name: 'Bucket' },
-    { id: 'pastels', name: 'Pastels' },
-    { id: 'sauces', name: 'Sauces'},
-    { id: 'supplements', name: 'Suppléments'}, 
-    { id: 'desserts', name: 'Desserts' },
-    { id: 'boissons', name: 'Boissons' }
-];
+        { id: 'box', name: 'Box' },
+        { id: 'cryspi', name: 'Cryspi' },
+        { id: 'bucket', name: 'Bucket' },
+        { id: 'pastels', name: 'Pastels' },
+        { id: 'sauces', name: 'Sauces' },
+        { id: 'supplements', name: 'Suppléments' },
+        { id: 'desserts', name: 'Desserts' },
+        { id: 'boissons', name: 'Boissons' }
+    ];
 
     // 2. Rendu des boutons de filtres minimalistes
     function renderCategoryFilters() {
         let filterWrapper = document.getElementById('category-filters');
-        
-        // Crée l'élément conteneur si inexistant dans le DOM
+
         if (!filterWrapper) {
             filterWrapper = document.createElement('div');
             filterWrapper.id = 'category-filters';
@@ -49,6 +115,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderProducts() {
         productsContainer.innerHTML = '';
 
+        // Sécurité : si productsData n'existe pas, on tente le cache
+        if (typeof productsData === 'undefined' || !productsData || productsData.length === 0) {
+            const cached = getCachedProducts();
+            if (cached && cached.length) {
+                productsData = cached;
+            }
+        }
+
         if (!productsData || productsData.length === 0) {
             productsContainer.innerHTML = `
                 <div class="empty-state">
@@ -61,9 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Filtrage des produits selon la catégorie sélectionnée
-        const filteredProducts = selectedCategory === 'all' 
-            ? productsData 
+        const filteredProducts = selectedCategory === 'all'
+            ? productsData
             : productsData.filter(p => p.category === selectedCategory);
 
         if (filteredProducts.length === 0) {
@@ -78,72 +151,76 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Préchargement des images en arrière-plan
+        preloadImages(filteredProducts);
+
         filteredProducts.forEach(product => {
-    const qty = cart[product.id] || 0;
+            const qty = cart[product.id] || 0;
 
-    const card = document.createElement('div');
-    card.className = 'product-card';
+            const card = document.createElement('div');
+            card.className = 'product-card';
 
-    const actionButtonHTML = qty > 0 ? `
-        <div class="qty-pill">
-            <button class="btn-minus" data-id="${product.id}" aria-label="Retirer">
-                <i data-feather="minus"></i>
-            </button>
+            const actionButtonHTML = qty > 0 ? `
+                <div class="qty-pill">
+                    <button class="btn-minus" data-id="${product.id}" aria-label="Retirer">
+                        <i data-feather="minus"></i>
+                    </button>
 
-            <span>${qty}</span>
+                    <span>${qty}</span>
 
-            <button class="btn-plus" data-id="${product.id}" aria-label="Ajouter">
-                <i data-feather="plus"></i>
-            </button>
-        </div>
-    ` : `
-        <button class="add-btn btn-plus" data-id="${product.id}" aria-label="Ajouter au panier">
-            <i data-feather="plus"></i>
-        </button>
-    `;
+                    <button class="btn-plus" data-id="${product.id}" aria-label="Ajouter">
+                        <i data-feather="plus"></i>
+                    </button>
+                </div>
+            ` : `
+                <button class="add-btn btn-plus" data-id="${product.id}" aria-label="Ajouter au panier">
+                    <i data-feather="plus"></i>
+                </button>
+            `;
 
-    card.innerHTML = `
-        <div class="product-image-wrapper">
-            <img
-                src="${product.image}"
-                alt="${product.name}"
-                class="product-img"
-                loading="lazy"
-            >
-        </div>
-
-        <div class="product-content">
-
-            <div class="product-main">
-                <h4 class="product-name">${product.name}</h4>
-
-                <p class="product-desc">
-                    ${product.desc}
-                </p>
-            </div>
-
-            <div class="product-bottom">
-
-                <div class="product-price">
-                    <span class="price-value">
-                        ${product.price.toLocaleString('fr-FR')}
-                    </span>
-                    <span class="currency">FCFA</span>
+            card.innerHTML = `
+                <div class="product-image-wrapper">
+                    <img
+                        src="${product.image}"
+                        alt="${product.name}"
+                        class="product-img"
+                        loading="lazy"
+                        decoding="async"
+                    >
                 </div>
 
-                ${actionButtonHTML}
+                <div class="product-content">
 
-            </div>
+                    <div class="product-main">
+                        <h4 class="product-name">${product.name}</h4>
 
-        </div>
-    `;
+                        <p class="product-desc">
+                            ${product.desc}
+                        </p>
+                    </div>
 
-    productsContainer.appendChild(card);
-});
+                    <div class="product-bottom">
 
-feather.replace();
-attachProductEvents();
-    }  
+                        <div class="product-price">
+                            <span class="price-value">
+                                ${product.price.toLocaleString('fr-FR')}
+                            </span>
+                            <span class="currency">FCFA</span>
+                        </div>
+
+                        ${actionButtonHTML}
+
+                    </div>
+
+                </div>
+            `;
+
+            productsContainer.appendChild(card);
+        });
+
+        feather.replace();
+        attachProductEvents();
+    }
 
     function attachProductEvents() {
         document.querySelectorAll('.btn-plus').forEach(btn => {

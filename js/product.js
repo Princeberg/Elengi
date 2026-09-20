@@ -5,7 +5,7 @@ const productsData = [
         name: "Afro box",
         price: 5500,
         category: "box",
-        desc: "Tchep, poulets cryspi, bannanes frites ou frites , Salade",
+        desc: "Tchep, poulets cryspi, bannanes ou frites , Salade",
         image: "images/menu/Afrobox.png"
     },
 
